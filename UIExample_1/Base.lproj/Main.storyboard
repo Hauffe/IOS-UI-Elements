@@ -35,6 +35,18 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="ccO-4K-cW4">
                                 <rect key="frame" x="197" y="280" width="37" height="37"/>
                             </activityIndicatorView>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xvZ-He-nbt">
+                                <rect key="frame" x="20" y="354" width="51" height="31"/>
+                                <connections>
+                                    <action selector="valueChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="fVu-zb-eLz"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="On" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hBN-RM-fnr">
+                                <rect key="frame" x="20" y="402" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -46,6 +58,8 @@
                             <constraint firstItem="ccO-4K-cW4" firstAttribute="top" secondItem="vlx-OK-CxM" secondAttribute="bottom" constant="92" id="6OC-TN-1lX"/>
                             <constraint firstItem="ccO-4K-cW4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="197" id="B81-hA-mmh"/>
                             <constraint firstItem="vlx-OK-CxM" firstAttribute="top" secondItem="cWV-jp-bTU" secondAttribute="bottom" constant="41" id="Ore-jq-uME"/>
+                            <constraint firstItem="xvZ-He-nbt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="310" id="U9l-c9-97u"/>
+                            <constraint firstItem="hBN-RM-fnr" firstAttribute="top" secondItem="xvZ-He-nbt" secondAttribute="bottom" constant="17" id="dHd-NR-Bff"/>
                             <constraint firstItem="r5T-39-dpr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="ffH-0S-Slb"/>
                             <constraint firstItem="cWV-jp-bTU" firstAttribute="top" secondItem="r5T-39-dpr" secondAttribute="bottom" constant="39" id="j9M-XT-h3z"/>
                             <constraint firstItem="cWV-jp-bTU" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="qNd-uy-ZCq"/>
@@ -53,6 +67,7 @@
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="ccO-4K-cW4" id="jsA-Bz-3nU"/>
+                        <outlet property="label" destination="hBN-RM-fnr" id="jih-zT-He1"/>
                         <outlet property="progressView" destination="cWV-jp-bTU" id="kRM-k5-OcM"/>
                     </connections>
                 </viewController>
