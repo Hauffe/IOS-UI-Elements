@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import SafariServices
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, SFSafariViewControllerDelegate {
     
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -43,17 +44,32 @@ class ViewController: UIViewController {
     @IBAction func didPressButton(_ sender: Any) {
         //shere data
         
-        let activityView =
-            UIActivityViewController(activityItems: ["Data From this app"], applicationActivities: nil)
-            present(activityView, animated: true, completion: nil)
-        
-        //Alert!
-        let alertController = UIAlertController(title: "Alert Title", message: "Alert Message", preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: "OK", style: .cancel) { (action) in
-            print("All done!")
+//        let activityView =
+//            UIActivityViewController(activityItems: ["Data From this app"], applicationActivities: nil)
+//            present(activityView, animated: true, completion: nil)
+//
+//        //Alert!
+//        let alertController = UIAlertController(title: "Alert Title", message: "Alert Message", preferredStyle: .alert)
+//        let alertAction = UIAlertAction(title: "OK", style: .cancel) { (action) in
+//            print("All done!")
+//        }
+//        alertController.addAction(alertAction)
+//        present(alertController, animated: true, completion: nil)
+        if let url = URL(string: "https://bing.com"){
+            let safatiVC = SFSafariViewController(url: url)
+            safatiVC.delegate = self
+            present(safatiVC, animated: true, completion: nil)
+//        UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
-        alertController.addAction(alertAction)
-        present(alertController, animated: true, completion: nil)
+    }
+    
+    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+        let alertController = UIAlertController(title: "Alert Title", message: "Alert Message", preferredStyle: .alert)
+                let alertAction = UIAlertAction(title: "OK", style: .cancel) { (action) in
+                    print("All done!")
+                }
+                alertController.addAction(alertAction)
+                present(alertController, animated: true, completion: nil)
     }
 }
 
